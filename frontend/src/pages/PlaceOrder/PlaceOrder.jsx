@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../Context/StoreContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { getTotalCartAmount, food_list, token, cartItems, url } =
@@ -18,6 +19,7 @@ const PlaceOrder = () => {
     country: "",
     phone: "",
   });
+  const navigate = useNavigate();
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -51,6 +53,13 @@ const PlaceOrder = () => {
       alert("Error while proceeding payment");
     }
   };
+  useEffect(() => {
+    if (!token) {
+      navigate("/cart");
+    } else if (getTotalCartAmount() === 0) {
+      navigate("/cart");
+    }
+  }, [token]);
 
   return (
     <form onSubmit={placeOrder} className="place-order">
