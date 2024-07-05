@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="logo" />
+          <img className="logo" src={assets.logo} alt="logo" />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Necessitatibus, explicabo quod assumenda reiciendis nam voluptas
@@ -31,7 +31,7 @@ const Footer = () => {
           <h2>Get IN TOUCH</h2>
           <ul>
             <li>+91 9876522431</li>
-            <li>contact@nkn.com</li>
+            <li>contact@funfam.com</li>
           </ul>
         </div>
       </div>
